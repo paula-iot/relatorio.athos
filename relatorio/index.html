@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Relatório de Situação dos Sites — Athos Psicologia | Kairos Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --c-bg:        #F7F4EF;
+      --c-surface:   #FFFFFF;
+      --c-ink:       #1A1714;
+      --c-ink-2:     #4A4540;
+      --c-ink-3:     #8C857D;
+      --c-accent:    #B8977A;
+      --c-accent-dk: #8C6E56;
+      --c-line:      #E4DDD6;
+      --c-tag-bg:    #EDE8E2;
+      --c-ok:        #3A7A3A;
+      --c-ok-bg:     #EAF5EA;
+      --font: 'Inter', sans-serif;
+      --r-md: 10px;
+      --r-lg: 20px;
+      --max-w: 820px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--c-bg);
+      color: var(--c-ink);
+      font-size: 15px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+
+    /* COVER */
+    .cover { background: var(--c-ink); color: #F7F4EF; padding: 72px 0 64px; position: relative; overflow: hidden; }
+    .cover::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 110% 50%, rgba(184,151,122,.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at -10% 80%, rgba(184,151,122,.10) 0%, transparent 60%);
+    }
+    .cover__inner { position: relative; }
+    .cover__eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; flex-wrap: wrap; }
+    .cover__brand { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--c-accent); }
+    .cover__sep { width: 32px; height: 1px; background: rgba(184,151,122,.4); }
+    .cover__doc { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: rgba(247,244,239,.4); }
+    .cover__title { font-size: clamp(28px, 4.5vw, 44px); font-weight: 800; line-height: 1.12; letter-spacing: -.02em; margin-bottom: 16px; }
+    .cover__title em { font-style: normal; color: var(--c-accent); }
+    .cover__sub { font-size: 15px; font-weight: 300; color: rgba(247,244,239,.6); max-width: 540px; line-height: 1.65; margin-bottom: 44px; }
+    .cover__meta { display: flex; gap: 36px; flex-wrap: wrap; }
+    .cover__meta-label { font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: rgba(247,244,239,.35); margin-bottom: 4px; }
+    .cover__meta-value { font-size: 14px; font-weight: 500; color: rgba(247,244,239,.85); }
+
+    /* REASSURANCE BANNER */
+    .banner {
+      background: var(--c-ok-bg);
+      border: 1px solid #CDE5CD;
+      border-left: 4px solid var(--c-ok);
+      border-radius: var(--r-md);
+      padding: 18px 22px;
+      margin: 36px 0 0;
+      font-size: 14px;
+      color: #2C5A2C;
+    }
+    .banner strong { color: #1F421F; }
+
+    /* SECTIONS */
+    .section { padding: 56px 0; border-bottom: 1px solid var(--c-line); }
+    .section:last-of-type { border-bottom: none; }
+    .section__label { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--c-accent); margin-bottom: 10px; }
+    .section__title { font-size: 22px; font-weight: 700; letter-spacing: -.02em; line-height: 1.2; margin-bottom: 20px; }
+    .section p.lead { font-size: 14px; color: var(--c-ink-2); margin-bottom: 18px; }
+
+    /* GLOSSARY */
+    .gloss { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
+    .gloss__card { background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); padding: 16px 18px; }
+    .gloss__term { font-size: 13px; font-weight: 800; color: var(--c-accent-dk); margin-bottom: 4px; }
+    .gloss__def { font-size: 13px; color: var(--c-ink-2); line-height: 1.6; }
+
+    /* DOMAIN CARDS */
+    .domain-card { background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); padding: 24px 28px; margin-bottom: 18px; }
+    .domain-card--accent { border-left: 3px solid var(--c-accent); }
+    .domain-card__role { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--c-accent); margin-bottom: 6px; }
+    .domain-card__name { font-size: 17px; font-weight: 800; margin-bottom: 12px; }
+    .kv { display: grid; grid-template-columns: 200px 1fr; gap: 6px 16px; font-size: 13.5px; }
+    .kv dt { font-weight: 700; color: var(--c-ink); }
+    .kv dd { color: var(--c-ink-2); }
+    .pill { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 10px; border-radius: 99px; letter-spacing: .06em; text-transform: uppercase; }
+    .pill--warn { background: #FBEFE3; color: #9A6A2F; }
+    .pill--ok { background: var(--c-ok-bg); color: var(--c-ok); }
+
+    /* TIMELINE */
+    .timeline { position: relative; padding-left: 32px; margin-top: 12px; }
+    .timeline::before { content: ''; position: absolute; left: 9px; top: 10px; bottom: 10px; width: 2px;
+      background: linear-gradient(to bottom, var(--c-accent), rgba(184,151,122,.15)); }
+    .tl-item { position: relative; margin-bottom: 26px; padding-left: 20px; }
+    .tl-item:last-child { margin-bottom: 0; }
+    .tl-item::before { content: ''; position: absolute; left: -23px; top: 5px; width: 14px; height: 14px;
+      border-radius: 50%; background: var(--c-bg); border: 2px solid var(--c-accent); }
+    .tl-item--filled::before { background: var(--c-accent); }
+    .tl-period { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--c-accent); margin-bottom: 4px; }
+    .tl-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .tl-desc { font-size: 13px; color: var(--c-ink-2); line-height: 1.65; }
+
+    /* STEPS */
+    .step { display: flex; gap: 16px; align-items: flex-start; background: var(--c-surface);
+      border: 1px solid var(--c-line); border-radius: var(--r-md); padding: 18px 20px; margin-bottom: 12px; }
+    .step__num { width: 30px; height: 30px; border-radius: 50%; background: var(--c-accent); color: #fff;
+      display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; flex-shrink: 0; margin-top: 2px; }
+    .step__title { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+    .step__desc { font-size: 13px; color: var(--c-ink-2); line-height: 1.65; }
+    .step--dependent { border-left: 4px solid var(--c-accent-dk); }
+    .step__tag { display: inline-block; margin-top: 6px; font-size: 10px; font-weight: 700; padding: 2px 10px;
+      border-radius: 99px; background: var(--c-tag-bg); color: var(--c-accent-dk); letter-spacing: .06em; text-transform: uppercase; }
+
+    /* GUARANTEE LIST */
+    .ok-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+    .ok-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--c-surface);
+      border: 1px solid var(--c-line); border-radius: var(--r-md); padding: 14px 16px; font-size: 14px; color: var(--c-ink-2); line-height: 1.65; }
+    .ok-list li .ok-icon { color: var(--c-ok); font-weight: 800; flex-shrink: 0; }
+    .ok-list li strong { color: var(--c-ink); }
+
+    /* ALERT */
+    .alert-box { background: var(--c-surface); border: 1px solid var(--c-line); border-left: 4px solid var(--c-accent);
+      border-radius: var(--r-md); padding: 20px 24px; margin-top: 16px; }
+    .alert-box__title { font-size: 13px; font-weight: 700; color: var(--c-accent-dk); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .06em; }
+    .alert-box__body { font-size: 13px; color: var(--c-ink-2); line-height: 1.7; }
+
+    /* FOOTER */
+    .footer { padding: 32px 0; border-top: 1px solid var(--c-line); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer__brand { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--c-ink-3); }
+    .footer__copy { font-size: 12px; color: var(--c-ink-3); }
+
+    @media print {
+      body { background: #fff; font-size: 13px; }
+      .cover, .step__num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .section { page-break-inside: avoid; }
+    }
+    @media (max-width: 640px) {
+      .wrap { padding: 0 22px; }
+      .gloss { grid-template-columns: 1fr; }
+      .kv { grid-template-columns: 1fr; gap: 2px; }
+      .kv dt { margin-top: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="wrap">
+    <div class="cover__inner">
+      <div class="cover__eyebrow">
+        <span class="cover__brand">Kairos Solutions</span>
+        <span class="cover__sep"></span>
+        <span class="cover__doc">Relatório de Situação &amp; Passagem Técnica</span>
+      </div>
+      <h1 class="cover__title">Situação dos sites da<br><em>Athos Psicologia</em></h1>
+      <p class="cover__sub">
+        Este relatório explica, em linguagem simples, o que aconteceu com os seus dois sites,
+        o que já foi feito (tudo sem custo), o que falta para voltarem ao ar e o que segue
+        garantido pelo contrato.
+      </p>
+      <div class="cover__meta">
+        <div><p class="cover__meta-label">Preparado para</p><p class="cover__meta-value">Anisha — Athos Psicologia</p></div>
+        <div><p class="cover__meta-label">Preparado por</p><p class="cover__meta-value">Paula Silva — Kairos Solutions</p></div>
+        <div><p class="cover__meta-label">Data</p><p class="cover__meta-value">10 / Junho / 2026</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BANNER -->
+<div class="wrap">
+  <div class="banner">
+    ✅ <strong>O conteúdo do seu site NÃO foi perdido.</strong> Foi feita uma cópia de segurança completa
+    (backup) com todas as páginas, textos e fotos. O que está travado é o "endereço" e a "placa que aponta
+    o caminho" — não o site em si. Tudo está explicado abaixo.
+  </div>
+</div>
+
+<!-- DICIONÁRIO -->
+<section class="section">
+  <div class="wrap">
+    <p class="section__label">Antes de tudo</p>
+    <h2 class="section__title">Mini-dicionário para acompanhar sem dúvida</h2>
+    <div class="gloss">
+      <div class="gloss__card"><p class="gloss__term">Domínio</p><p class="gloss__def">O endereço do site — o "athospsicologia.com" que a pessoa digita. Como todo endereço, é registrado num "cartório" e tem renovação periódica, como um aluguel do nome.</p></div>
+      <div class="gloss__card"><p class="gloss__term">Hospedagem</p><p class="gloss__def">O "terreno" onde o site mora: um servidor que guarda os arquivos, textos e fotos e os entrega para quem visita. No seu caso, a Hostinger.</p></div>
+      <div class="gloss__card"><p class="gloss__term">DNS</p><p class="gloss__def">A "placa de trânsito" da internet: diz que quem procurar pelo seu endereço deve ir até tal servidor. Se a placa aponta errado (ou pra lugar nenhum), o endereço existe mas ninguém encontra o site.</p></div>
+      <div class="gloss__card"><p class="gloss__term">Nameservers</p><p class="gloss__def">Quem segura essa "placa". É configurado dentro do painel onde o domínio foi registrado.</p></div>
+      <div class="gloss__card"><p class="gloss__term">Backup</p><p class="gloss__def">Cópia de segurança completa do site (páginas, textos, fotos e dados), que permite restaurá-lo em outro lugar sem perder nada.</p></div>
+      <div class="gloss__card"><p class="gloss__term">Código EPP</p><p class="gloss__def">Uma "senha de mudança": o código que autoriza transferir um domínio de uma empresa para outra.</p></div>
+      <div class="gloss__card"><p class="gloss__term">SSL</p><p class="gloss__def">O "cadeado" de segurança ao lado do endereço no navegador. Sem ele, o navegador avisa que o site não é seguro.</p></div>
+      <div class="gloss__card"><p class="gloss__term">WordPress</p><p class="gloss__def">O programa em que seu site foi construído — onde ficam os textos, as páginas e os plugins (recursos extras).</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUMO -->
+<section class="section">
+  <div class="wrap">
+    <p class="section__label">Parte 1</p>
+    <h2 class="section__title">O que aconteceu, em resumo</h2>
+    <p class="lead">Você tem dois sites, criados em momentos diferentes por profissionais diferentes:</p>
+
+    <div class="domain-card domain-card--accent">
+      <p class="domain-card__role">Site principal — o que traz a maioria dos pacientes</p>
+      <p class="domain-card__name">athospsicologia.com</p>
+      <p style="font-size:13.5px;color:var(--c-ink-2);">O endereço (domínio) foi registrado pela <strong>Webnode</strong>, mas o site em si mora na <strong>Hostinger</strong>.</p>
+    </div>
+    <div class="domain-card">
+      <p class="domain-card__role">Segundo site — o que estava com a agência</p>
+      <p class="domain-card__name">athospsicologia.com.br</p>
+      <p style="font-size:13.5px;color:var(--c-ink-2);">Endereço registrado no <strong>Registro.br</strong> (o cartório oficial dos endereços ".br"), hoje já no seu nome.</p>
+    </div>
+
+    <p class="lead" style="margin-top:18px;">
+      Dois problemas aconteceram quase ao mesmo tempo: <strong>o servidor da agência saiu do ar</strong>
+      (derrubando o .com.br) e <strong>o endereço .com ficou com uma pendência na Webnode</strong> — a plataforma
+      exige uma confirmação que só pode ser feita pela conta da titular do domínio (você), dentro do painel dela.
+      Com isso, os dois sites ficaram fora do ar.
+    </p>
+  </div>
+</section>
+
+<!-- SITUAÇÃO DE CADA ENDEREÇO -->
+<section class="section">
+  <div class="wrap">
+    <p class="section__label">Parte 2</p>
+    <h2 class="section__title">A situação de cada endereço hoje</h2>
+
+    <div class="domain-card domain-card--accent">
+      <p class="domain-card__role">Endereço principal</p>
+      <p class="domain-card__name">www.athospsicologia.com &nbsp;<span class="pill pill--warn">site fora do ar</span></p>
+      <dl class="kv">
+        <dt>Registrado onde</dt><dd>Webnode</dd>
+        <dt>Endereço válido até</dt><dd>13/07/2026 (o endereço está ativo)</dd>
+        <dt>Por que está fora do ar</dt><dd>A "placa" (DNS) precisa ser atualizada dentro do painel da Webnode — e a plataforma só permite isso pela conta da titular (você).</dd>
+        <dt>Código de mudança (EPP)</dt><dd>Já emitido em 04/06/2026 — permite transferir o endereço da Webnode para outra empresa (ex.: Hostinger), simplificando tudo daqui pra frente.</dd>
+        <dt>Onde o site mora</dt><dd>Hostinger (sua conta)</dd>
+        <dt>Cópia de segurança</dt><dd>Feita e guardada — backup completo de ~671 MB, baixado em 18/05</dd>
+      </dl>
+    </div>
+
+    <div class="domain-card">
+      <p class="domain-card__role">Segundo endereço</p>
+      <p class="domain-card__name">www.athospsicologia.com.br &nbsp;<span class="pill pill--ok">endereço regularizado</span></p>
+      <dl class="kv">
+        <dt>Registrado onde</dt><dd>Registro.br — no seu nome (ID ANGSA195) desde 28/04; antes estava preso com a agência</dd>
+        <dt>Situação</dt><dd>Endereço ativo e sob seu controle. A "placa" (DNS) já foi configurada apontando para a Hostinger. Falta o site estar de pé lá para a placa ter para onde apontar.</dd>
+        <dt>Hospedagem anterior</dt><dd>Servidor da agência — fora do ar desde ~13/05, após o rompimento do contrato com eles</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- CRONOLOGIA -->
+<section class="section">
+  <div class="wrap">
+    <p class="section__label">Parte 3</p>
+    <h2 class="section__title">O que já foi feito, e quando</h2>
+    <p class="lead">Todo o trabalho abaixo foi realizado <strong>sem custo para você</strong>:</p>
+
+    <div class="timeline">
+      <div class="tl-item tl-item--filled">
+        <p class="tl-period">22 a 28 de Abril</p>
+        <p class="tl-title">Organização dos acessos e resgate do endereço .com.br</p>
+        <p class="tl-desc">Entramos no Webnode, no WordPress e na Hostinger, e resolvemos a transferência do endereço .com.br — que estava preso com a agência — para o seu nome, incluindo a correção de um cadastro que a agência fez errado (resolvida junto ao suporte do Registro.br).</p>
+      </div>
+      <div class="tl-item tl-item--filled">
+        <p class="tl-period">27 de Abril</p>
+        <p class="tl-title">Primeiras melhorias de SEO aplicadas</p>
+        <p class="tl-desc">Ajustes no site principal para o Google encontrar e ranquear melhor as páginas.</p>
+      </div>
+      <div class="tl-item tl-item--filled">
+        <p class="tl-period">13 de Maio</p>
+        <p class="tl-title">Queda do servidor da agência</p>
+        <p class="tl-desc">O servidor da agência caiu e o site .com.br saiu do ar. No mesmo dia, enviamos um relatório explicando o ocorrido.</p>
+      </div>
+      <div class="tl-item tl-item--filled">
+        <p class="tl-period">14 de Maio</p>
+        <p class="tl-title">GEO concluído + descoberta da pendência na Webnode</p>
+        <p class="tl-desc">Concluímos as configurações de localização (GEO). Ao tentar ajustar a "placa" (DNS) do .com, descobrimos a pendência na Webnode — que só pode ser resolvida pela conta da titular. Também identificamos e tratamos um erro causado por um plugin de SEO de origem não oficial, instalado anteriormente no site.</p>
+      </div>
+      <div class="tl-item tl-item--filled">
+        <p class="tl-period">15 de Maio</p>
+        <p class="tl-title">Plano de ação apresentado</p>
+        <p class="tl-desc">Enviamos as alternativas para o endereço .com; você escolheu a opção 1.</p>
+      </div>
+      <div class="tl-item tl-item--filled">
+        <p class="tl-period">16 a 18 de Maio</p>
+        <p class="tl-title">Cópia de segurança completa</p>
+        <p class="tl-desc">Backup integral do site (~671 MB) baixado e guardado. Iniciadas as tentativas de subi-lo para a Hostinger — o WordPress tem limite de 300 MB por vez, então é preciso usar um caminho manual, mais trabalhoso.</p>
+      </div>
+      <div class="tl-item tl-item--filled">
+        <p class="tl-period">22 a 26 de Maio</p>
+        <p class="tl-title">"Placa" do .com.br configurada + proposta de unificação</p>
+        <p class="tl-desc">Configuramos o DNS do .com.br apontando para a Hostinger e apresentamos a proposta de deixar os dois sites morando em um lugar só.</p>
+      </div>
+      <div class="tl-item tl-item--filled">
+        <p class="tl-period">01 a 02 de Junho</p>
+        <p class="tl-title">Insistência junto à Webnode</p>
+        <p class="tl-desc">Reforçamos o contato com o suporte (o primeiro e-mail ficou sem resposta); você também abriu um chamado direto na plataforma.</p>
+      </div>
+      <div class="tl-item tl-item--filled">
+        <p class="tl-period">04 de Junho</p>
+        <p class="tl-title">Código de mudança (EPP) emitido</p>
+        <p class="tl-desc">Emitido o código que permite transferir o endereço .com da Webnode para outra empresa.</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-period">10 de Junho</p>
+        <p class="tl-title">Orçamento da etapa de infraestrutura apresentado</p>
+        <p class="tl-desc">Apresentado o orçamento da etapa que falta, para sua avaliação — você decide se aprova ou se prefere outro profissional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- O QUE FALTA -->
+<section class="section">
+  <div class="wrap">
+    <p class="section__label">Parte 4</p>
+    <h2 class="section__title">O que falta para os sites voltarem ao ar</h2>
+    <p class="lead">São 5 passos, nesta ordem:</p>
+
+    <div class="step step--dependent">
+      <div class="step__num">1</div>
+      <div>
+        <p class="step__title">Destravar o endereço .com na Webnode</p>
+        <p class="step__desc">Atualizando a "placa" (DNS) no painel deles <em>ou</em> concluindo a mudança para outra empresa usando o código já emitido. A Webnode só aceita movimentações pela conta da titular — tratativa aberta no suporte desde 01/06, com chamado seu de 02/06.</p>
+        <span class="step__tag">Depende de ação da titular</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step__num">2</div>
+      <div>
+        <p class="step__title">Subir a cópia de segurança para a Hostinger</p>
+        <p class="step__desc">Pelo caminho manual, por causa do limite de 300 MB do WordPress.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step__num">3</div>
+      <div>
+        <p class="step__title">Conferir as duas "placas" (DNS)</p>
+        <p class="step__desc">A do .com.br já está pronta; a do .com destrava junto com o passo 1.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step__num">4</div>
+      <div>
+        <p class="step__title">Ativar o "cadeado" de segurança (SSL)</p>
+        <p class="step__desc">Nos dois endereços, para o navegador mostrar o site como seguro.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step__num">5</div>
+      <div>
+        <p class="step__title">Testar tudo</p>
+        <p class="step__desc">Cada página, formulários de contato e o redirecionamento entre os dois endereços.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTIDO -->
+<section class="section">
+  <div class="wrap">
+    <p class="section__label">Parte 5</p>
+    <h2 class="section__title">O que segue garantido pelo contrato (sem custo)</h2>
+    <p class="lead">Assim que o site estiver no ar, continuam valendo e serão entregues normalmente:</p>
+    <ul class="ok-list">
+      <li><span class="ok-icon">✓</span><span><strong>Implantação completa de SEO</strong> — parte já foi feita: as melhorias de 27/04 e as configurações de localização de 14/05.</span></li>
+      <li><span class="ok-icon">✓</span><span><strong>Unificação dos sites</strong> — aproveitar o conteúdo que funciona e centralizar tudo em um site só, sem perder o histórico e a relevância que você já conquistou no Google.</span></li>
+      <li><span class="ok-icon">✓</span><span><strong>5 relatórios mensais</strong> de acompanhamento após a conclusão da implantação.</span></li>
+    </ul>
+
+    <div class="alert-box">
+      <p class="alert-box__title">🔒 Sobre as senhas</p>
+      <p class="alert-box__body">
+        Por segurança, nenhuma senha consta neste documento. Os acessos serão compartilhados pelo canal
+        que você preferir, apenas com o profissional que você autorizar.
+      </p>
+    </div>
+
+    <p class="lead" style="margin-top:18px;">
+      Com este relatório, qualquer profissional da sua confiança consegue dar continuidade ao trabalho do
+      ponto exato em que está, sem refazer nada. E seguimos à disposição para executar a etapa que falta,
+      conforme o orçamento apresentado, ou para colaborar com quem você escolher — basta nos avisar. 😊
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer">
+      <span class="footer__brand">Kairos Solutions</span>
+      <span class="footer__copy">Relatório de Situação &amp; Passagem Técnica — Athos Psicologia · Junho 2026</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
