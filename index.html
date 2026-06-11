@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Athos Psicologia — Documentos | Kairos Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --c-bg:        #F7F4EF;
+      --c-ink:       #1A1714;
+      --c-ink-2:     #4A4540;
+      --c-ink-3:     #8C857D;
+      --c-accent:    #B8977A;
+      --c-accent-dk: #8C6E56;
+      --c-line:      #E4DDD6;
+      --c-tag-bg:    #EDE8E2;
+      --font: 'Inter', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--c-bg);
+      color: var(--c-ink);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .wrap { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 48px; }
+
+    /* HEADER */
+    header { padding: 36px 0 0; }
+    .header__row { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { font-size: 15px; font-weight: 700; letter-spacing: -.01em; }
+    .brand em { font-style: italic; font-weight: 400; color: var(--c-accent-dk); }
+    .header__date {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--c-ink-3);
+      border: 1px solid var(--c-line);
+      border-radius: 99px;
+      padding: 8px 18px;
+      background: #fff;
+    }
+
+    /* INTRO */
+    .intro { padding: 96px 0 40px; }
+    .intro__kicker {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--c-accent-dk);
+      margin-bottom: 24px;
+    }
+    .intro__title {
+      font-size: clamp(44px, 8vw, 96px);
+      font-weight: 600;
+      line-height: 1.02;
+      letter-spacing: -.035em;
+    }
+    .intro__title em { font-style: normal; color: var(--c-accent-dk); }
+    .intro__sub {
+      margin-top: 28px;
+      font-size: clamp(16px, 2vw, 20px);
+      font-weight: 400;
+      color: var(--c-ink-2);
+      line-height: 1.6;
+      max-width: 640px;
+    }
+
+    /* DOC ROWS */
+    .docs { flex: 1; padding: 32px 0 64px; }
+    .doc {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border-top: 1px solid var(--c-line);
+      padding: 56px 0;
+      transition: padding-left .25s ease;
+    }
+    .doc:last-of-type { border-bottom: 1px solid var(--c-line); }
+    .doc:hover { padding-left: 12px; }
+    .doc__row { display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; }
+    .doc__num {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      color: var(--c-ink-3);
+      margin-bottom: 14px;
+    }
+    .doc__title {
+      font-size: clamp(34px, 5.6vw, 64px);
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -.03em;
+      transition: color .2s ease;
+    }
+    .doc:hover .doc__title { color: var(--c-accent-dk); }
+    .doc__desc {
+      margin-top: 18px;
+      font-size: 16px;
+      color: var(--c-ink-2);
+      line-height: 1.65;
+      max-width: 620px;
+      font-weight: 400;
+    }
+    .doc__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+    .tag {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--c-ink-2);
+      background: var(--c-tag-bg);
+      border-radius: 99px;
+      padding: 8px 18px;
+    }
+    .doc__arrow {
+      flex-shrink: 0;
+      font-size: clamp(28px, 3.6vw, 44px);
+      font-weight: 300;
+      color: var(--c-ink);
+      line-height: 1;
+      margin-top: 10px;
+      transition: transform .25s ease, color .2s ease;
+    }
+    .doc:hover .doc__arrow { transform: translateX(8px); color: var(--c-accent-dk); }
+
+    /* FOOTER */
+    footer { padding: 28px 0 36px; border-top: 1px solid var(--c-line); }
+    .footer__row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .footer__left { font-size: 13px; font-weight: 600; color: var(--c-ink-3); letter-spacing: .04em; }
+    .footer__right { font-size: 13px; color: var(--c-ink-3); }
+
+    @media (max-width: 640px) {
+      .wrap { padding: 0 24px; }
+      .intro { padding: 64px 0 24px; }
+      .doc { padding: 40px 0; }
+      .doc__row { gap: 16px; }
+      .doc__arrow { margin-top: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <div class="header__row">
+        <span class="brand">Kairos <em>Solutions IT</em> LTDA</span>
+        <span class="header__date">Junho 2026</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="intro">
+    <div class="wrap">
+      <p class="intro__kicker">Documentos — Athos Psicologia</p>
+      <h1 class="intro__title">Oi, Anisha.<br>Tudo explicado, <em>do jeito simples.</em></h1>
+      <p class="intro__sub">
+        Aqui estão os dois documentos combinados: o relatório do que foi feito até agora
+        e o orçamento detalhado da etapa que falta. Leia no seu tempo qualquer dúvida, é só me chamar.
+      </p>
+    </div>
+  </section>
+
+  <main class="docs">
+    <div class="wrap">
+
+      <a class="doc" href="./relatorio-athos.html">
+        <div class="doc__row">
+          <div>
+            <p class="doc__num">01</p>
+            <h2 class="doc__title">Relatório de Situação</h2>
+            <p class="doc__desc">
+              O que aconteceu com os dois sites, tudo o que já foi feito — com as datas —
+              e o que falta para voltarem ao ar. Começa com um mini-dicionário para nenhum
+              termo ficar no ar.
+            </p>
+            <div class="doc__tags">
+              <span class="tag">Linha do tempo</span>
+              <span class="tag">Situação dos domínios</span>
+              <span class="tag">Mini-dicionário</span>
+              <span class="tag">Próximos passos</span>
+            </div>
+          </div>
+          <span class="doc__arrow">→</span>
+        </div>
+      </a>
+
+      <a class="doc" href="./orcamento-infra-athos.html">
+        <div class="doc__row">
+          <div>
+            <p class="doc__num">02</p>
+            <h2 class="doc__title">Orçamento de Infraestrutura</h2>
+            <p class="doc__desc">
+              A etapa que falta, passo a passo: o que será feito, por que cada passo é
+              necessário, prazo, valor e condições — para você decidir com total clareza.
+            </p>
+            <div class="doc__tags">
+              <span class="tag">Escopo detalhado</span>
+              <span class="tag">Prazo por fases</span>
+              <span class="tag">Valor único</span>
+              <span class="tag">Incluso × não incluso</span>
+            </div>
+          </div>
+          <span class="doc__arrow">→</span>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer__row">
+        <span class="footer__left">KAIROS SOLUTIONS IT LTDA</span>
+        <span class="footer__right">Relatório &amp; Orçamento · Athos Psicologia</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
